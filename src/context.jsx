@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 const getInitialDarkMode = () => {
-  const preferColor = window.matchMedia("prefers-color-scheme:dark").matches;
+  const preferColor = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const storedColor = localStorage.getItem("darkTheme");
   if (storedColor === null) return preferColor;
   return storedColor === "true";
