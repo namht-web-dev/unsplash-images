@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
 import { useGlobalContext } from "./context";
+const url = "https://api.unsplash.com/search/photos?client_id=";
 
 const Gallery = () => {
   const { searchTerm } = useGlobalContext();
@@ -9,7 +10,7 @@ const Gallery = () => {
     queryKey: ["images", searchTerm],
     queryFn: async () => {
       const result = await axios.get(
-        `${import.meta.env.VITE_API_KEY}&query=${searchTerm}`
+        `${url}${import.meta.env.VITE_API_KEY}&query=${searchTerm}`
       );
       queryClient;
       return result.data;
